@@ -50,3 +50,14 @@ VALUES
 (3, 200, '2025-05-15', 'Missed Payment', 'Unpaid'),
 (4, 300, '2025-06-01', 'Late Payment', 'Unpaid'),
 (5, 500, '2025-06-15', 'Missed Payment', 'Unpaid');
+
+-- Insert paid loans
+INSERT INTO Loan (ClientID, LoanTypeID, StaffID, LoanAmount, InterestRate, StartDate, DueDate, Status)
+VALUES (1, 2, 1, 10000.00, 5.5, '2025-01-01', '2025-06-01', 'Active');
+
+INSERT INTO Repayment (LoanID, PaymentDate, PaymentAmount, BalanceRemaining)
+VALUES 
+(LAST_INSERT_ID(), '2025-02-01', 5000.00, 5000.00),
+(LAST_INSERT_ID(), '2025-03-01', 5000.00, 0.00);
+
+
